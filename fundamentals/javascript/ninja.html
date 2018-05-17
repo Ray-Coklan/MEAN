@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <script>
+            function Ninja(name){
+  
+  const speed = 3;
+  const strength = 3; 
+  this.name = name;
+  this.health = 100;
+  this.sayName = function(){
+    console.log("My Ninja name is " + this.name);
+  };
+  this.showStats = function(){
+    console.log("Name:" + this.name + " " + "Health:" + this.health + " " + "Speed:" + speed + " " + "strength:" + strength);
+  };
+  this.punch = function(hit,player){
+    while(hit > 0){
+    this.health -= 5;
+    hit --;
+      console.log(this.name + " " + "was punched by" + " " + player.name + " " + "and lost 5 health");
+    }
+  };
+  this.kick = function(strike,player){
+    while(strike > 0){
+      this.health -= 15;
+      strike --;
+      console.log(this.name + " " + "was kicked by" + " " + player.name + " " + "and lost 15 health");
+    }
+  };
+  this.drinkSake = function(sake){
+    while(sake > 0);
+      this.health += 10;
+      sake --;
+  };
+  return this;
+}
+const ninja1 = new Ninja("Hyabusa!");
+ninja1.sayName();
+ninja1.drinkSake();
+ninja1.punch();
+const blueNinja = new Ninja("Goemon");
+const redNinja = new Ninja("Bill Gates");
+redNinja.punch(2,blueNinja);
+blueNinja.kick(1, redNinja);
+ninja1.showStats();
+        </script>
+    </body>
+</html>

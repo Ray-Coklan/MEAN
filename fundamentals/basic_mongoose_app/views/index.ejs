@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homepage</title>
+</head>
+<body>
+    <h2>add a user</h2>
+    <form action="/users" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="body[name]">
+        <label for="age">Age:</label>
+        <input type="text" name="body[age]">
+        <input type="submit" value="submit">
+    </form>
+
+    <h2>users</h2>
+    <% for (user of users) { %>
+        <p> <%= user.name %> - Age: <%= user.age %></p>
+    <% } %>
+</body>
+</html>
+
+
+Add CommentCollapse 
+

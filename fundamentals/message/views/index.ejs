@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quote</title>
+</head>
+<body>
+	<h2>Message Board</h2><br><hr><br>
+	<form action="/new_message" method="post">
+		<label>Name: </label><br>
+		<input type="text" name="name"></input>
+		<label>Message: </label><br>
+		<textarea name="message" class="form-control" rows="4"></textarea><br>
+		<input type="submit" style="float: right;" value="Post Message"></input>
+	</form><br><br>
+
+	<div id="messages">
+		<div id="comments"></div>
+	</div>
+
+	<% for (var i in messages) { %>
+		<p>Name: <%= messages[i].name %></p>
+		<p>Message: <%= messages[i].message %></p>
+		<% if (messages[i].comments) { %>
+			<% for (j in messages[i].comments) { %>
+				<div style="margin-left: 30px;">
+					<p>Name: <%= messages[i].comments[j].name %></p>
+					<p>Comment: <%= messages[i].comments[j].comment %></p>
+				</div>
+			<% } %>
+			<form action="/new_comment/<%= messages[i]._id %>" method="post">
+						<label>Name: </label><br>
+						<input type="text" name="name" class="form-control"></input>
+						<label>Comment: </label><br>
+						<textarea name="comment" rows="4"></textarea><br>
+						<input type="submit" value="Post Comment"></input>
+					</form><br><br>
+		<% } %>
+	<% } %>
+
+</body>
+</html>
